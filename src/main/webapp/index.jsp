@@ -10,10 +10,12 @@
 <body>
 <h1>WELCOME TO CLOUDTEST</h1>
 
-<form action="test_Login_doLogin" method="post">0319
+<form action="test_Login_doLogin" method="post">
 		用户：<input name="username" required="required"><br><br>
 		密码：<input type="password" required="required" name="password"><br><br> 
 		<input type="submit" value="登陆">
+		
 </form>
 </body>
+<footer>20140319</footer>
 </html>
