@@ -2,7 +2,7 @@ package com.cloud.methods;
 
 import java.security.MessageDigest;
 
-public class MD5Util  {
+public class MD5tool  {
     public final static String MD5(String source) {
     	String s = null;
     	 byte[] btInput = source.getBytes(); 
@@ -33,7 +33,7 @@ public class MD5Util  {
     	   return s;
     }
     public static void main(String[] args) {
-        System.out.println(MD5Util.MD5("star888"));
+        System.out.println(MD5tool.MD5("star888"));
        
     }
 }

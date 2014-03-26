@@ -27,7 +27,7 @@ public class RightFilter implements Filter {
 		HttpServletRequest request=(HttpServletRequest) arg0;
 		HttpServletResponse response=(HttpServletResponse) arg1;
 		//HttpSession session = request.getSession(true);
-		Cookie token=Cook.getCook(request, "token");
+		Cookie token=CookBook.getCook(request, "token");
 //		if(token==null||token.getValue().equals("")){
 //			
 //		}else{
@@ -37,7 +37,7 @@ public class RightFilter implements Filter {
 			System.out.println("登录");
 			}else{
 				System.out.println("未登录");
-				response.sendRedirect(response.encodeURL("index.jsp"));
+				response.sendRedirect(response.encodeURL("index.jsp?ru="+request.getRequestURI()));
 			}
 		//}
 		
