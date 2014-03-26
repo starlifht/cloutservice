@@ -3,8 +3,7 @@ function check() {
 }
 
 function Push() {
-	$
-			.ajax({
+	$.ajax({
 				type : "POST",
 				url : encodeURI("test_File_doLog"),
 				success : function(data) {

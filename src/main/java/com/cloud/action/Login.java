@@ -51,19 +51,39 @@ public class Login  extends ActionSupport  {
 	public String doLogin() throws IOException, ServletException{
 
 	 request.getSession().setAttribute("username", username);
-	
+	String token=MD5tool.MD5(username+password);
+	String result;
 	//Cook.addCook(response, "username", username);
-	CookBook.addCook(response, "token", MD5tool.MD5(username+password));
+	if(token.equals("tr11x0s8r0t23rr4xf3t19r10223s400")){
+	CookBook.addCook(response, "token", token);
 	//Cookie sdfds=Cook.getCook(request, "username");
 	//System.out.print(sdfds.getValue());
 	//response.sendRedirect(response.encodeURL("Top.jsp"));
 
-	String s="登陆成功";
+	result="success";}else{
+		result="fail";
+	}
 		PrintWriter out=response.getWriter();
-		out.print(s);
+		out.print(result);
 		out.flush();
-//		out.close();
+		out.close();
 		return "text";
 	}
+	public String doLogout() throws IOException, ServletException{
 
+		// request.getSession().setAttribute("username", username);
+		
+		//Cook.addCook(response, "username", username);
+		CookBook.delCook(response, "token");
+		//Cookie sdfds=Cook.getCook(request, "username");
+		//System.out.print(sdfds.getValue());
+		//response.sendRedirect(response.encodeURL("Top.jsp"));
+
+		   String s="success";
+			PrintWriter out=response.getWriter();
+			out.print(s);
+			out.flush();
+			out.close();
+			return "text";
+		}
 }

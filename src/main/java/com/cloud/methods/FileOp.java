@@ -9,44 +9,47 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class FileOp {
-	public static  StringBuffer readFile(String url) throws Exception {
+	public static StringBuffer readFile(String url) throws Exception {
 		String line = null;
-		StringBuffer s=new StringBuffer();
+		StringBuffer s = new StringBuffer();
 		FileInputStream f = new FileInputStream(url);
-		
-		BufferedReader input = new BufferedReader(new InputStreamReader(f,"UTF-8")); // 
 
-		while ((line = input.readLine()) != null) { 
-		
-			//s.append(line);
-			
+		BufferedReader input = new BufferedReader(new InputStreamReader(f,
+				"UTF-8")); //
+
+		while ((line = input.readLine()) != null) {
+
+			// s.append(line);
+
 			s.append(line).append(System.getProperty("line.separator"));
-			//System.out.println(s);
+			// System.out.println(s);
 		}
 
 		input.close();
 
 		return s;
 	}
-	public static void saveFile(String url,String content) throws Exception{
+
+	public static void saveFile(String url, String content) throws Exception {
 		FileWriter fileWriter = new FileWriter(url, false);
 
-		//fileWriter.write(content);
+		// fileWriter.write(content);
 		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 		bufferedWriter.write(content);
 		bufferedWriter.flush();
 		fileWriter.flush();
 		fileWriter.close();
-	
+
 	}
+
 	public static void main(String[] args) {
-            try {
-				System.out.println(readFile("c:\\HTTP.jmx"));
-				
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
+		try {
+			System.out.println(readFile("c:\\HTTP.jmx"));
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 	}
 
 }

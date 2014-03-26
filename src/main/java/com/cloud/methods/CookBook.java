@@ -8,16 +8,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CookBook {
+	/***********
+	 * Cookie处理
+	 * @param response
+	 * @param name
+	 * @param value
+	 */
 
 	public static void addCook(HttpServletResponse response,String name ,String value){
 		 Cookie cookie = new Cookie(name,value);
 		 
 		 //cookie.setMaxAge(3600);
-		  
+		 cookie.setMaxAge(-1);
 		 //设置路径，这个路径即该工程下都可以访问该cookie 如果不设置路径，那么只有设置该cookie路径及其子路径可以访问
 		  
 		 cookie.setPath("/");
 		 response.addCookie(cookie);
+	}
+	public static void delCook(HttpServletResponse response,String name ){
+	
+		 
+		 //cookie.setMaxAge(3600);
+		Cookie cookie = new Cookie(name, null); 
+		cookie.setMaxAge(0);
+		cookie.setPath("/");
+		response.addCookie(cookie); 
+				
 	}
 //	public static String  getCook(HttpServletRequest request,String name){
 //		String cookievalue=null;
@@ -60,7 +76,7 @@ public class CookBook {
 	    return cookieMap;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
 	}
 

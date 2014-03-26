@@ -4,9 +4,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Highcharts Example</title>
+		<title>图表</title>
 
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+
 		<script type="text/javascript">
 $(function () {
         $('#container').highcharts({
@@ -50,12 +54,12 @@ $(function () {
     
 
 		</script>
+	
 	</head>
 	<body>
-<script src="js/highcharts.js"></script>
-<script src="js/exporting.js"></script>
+
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+	<input type="button" value="退出" onclick="postlogout()">
 	</body>
 </html>

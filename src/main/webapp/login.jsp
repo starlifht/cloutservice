@@ -11,10 +11,7 @@
 </head>
 <body>
 	<h1>WELCOME TO CLOUDTEST</h1>
-<%
-out.println(request.getServerName());
-out.println(request.getServerPort());
-%>
+
 	<form>
 		用户：<input name="username" required="required"><br>
 		<br> 密码：<input type="password" required="required"
@@ -23,5 +20,5 @@ out.println(request.getServerPort());
 
 	</form>
 </body>
-<footer>201403201509</footer>
+<footer>20140320150900</footer>
 </html>
