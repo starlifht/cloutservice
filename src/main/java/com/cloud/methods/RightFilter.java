@@ -36,17 +36,16 @@ public class RightFilter implements Filter {
 		HttpServletRequest request=(HttpServletRequest) arg0;
 		HttpServletResponse response=(HttpServletResponse) arg1;
 		boolean isExcludedPage = false;
-		for (String page : excludedPageArray) {//判断是否在过滤url之外
-		if(request.getServletPath().equals(page)){
-		isExcludedPage = true;
-		break;
-		}}
-		//HttpSession session = request.getSession(true);
-		
 		Cookie token=CookBook.getCook(request, "token");
-//		if(token==null||token.getValue().equals("")){
-//			
-//		}else{
+		for (String page:excludedPageArray) {//判断是否在过滤url之外
+		//	System.out.println(page);
+		if(request.getServletPath().equals(page)){
+			
+			isExcludedPage = true;
+			break;
+		}
+		}
+
 			if(token!=null||isExcludedPage)
 			{
 			arg2.doFilter(arg0, arg1); 
