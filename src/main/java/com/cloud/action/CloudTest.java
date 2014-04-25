@@ -1,18 +1,13 @@
 package com.cloud.action;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
 import org.jdom.Document;
 import org.jdom.Element;
-
 import com.cloud.methods.FileOp;
-import com.cloud.methods.Tools;
 import com.cloud.methods.XML;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -86,7 +81,11 @@ public class CloudTest extends ActionSupport {
 //		            case "ThreadGroup.num_threads":
 //		            	el.setText(this.threads);
 //		            	break;		          
-//		            }		        
+//		            }		
+		            if (name.equals("ThreadGroup.num_threads")){
+		            	el.setText(this.threads);
+		            	break;	
+		            }
 		        }	 
 		}
 	@SuppressWarnings("unchecked")
@@ -94,6 +93,7 @@ public class CloudTest extends ActionSupport {
 	 Element rootEl = doc.getRootElement().getChild("hashTree");
 		        Element HTTPSamplerProxy=rootEl.getChild("hashTree").getChild("hashTree").getChild("HTTPSamplerProxy");		      
 		        List<Element> stringProp =  HTTPSamplerProxy.getChildren("stringProp");
+		        String[] params=new String[]{"HTTPSampler.domain","HTTPSampler.port","HTTPSampler.path"};
 		        for (Element el : stringProp) {	
 		            String name = el.getAttributeValue("name");
 //		            switch(name){
@@ -106,7 +106,19 @@ public class CloudTest extends ActionSupport {
 //		            case "HTTPSampler.path":
 //		            	el.setText(this.path);
 //		            	break;
-//		            }		         
+//		            }		 
+		         if(name.equals("HTTPSampler.domain")){
+		        	 el.setText(this.ip);
+		            	break; 
+		         }
+		         if(name.equals("HTTPSampler.port")){
+		        	 el.setText(this.port);
+		            	break; 
+		         }
+		         if(name.equals("HTTPSampler.path")){
+		        	 el.setText(this.path);
+		            	break; 
+		         }
 		      }
 	}
 	public String getPort() {
