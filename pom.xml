@@ -68,7 +68,7 @@
                 <encoding>utf-8</encoding>  
             </configuration>  
         </plugin>  
-		<!--	<plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
@@ -77,18 +77,20 @@
 					<path>/cloud</path>
 					<encoding>UTF-8</encoding>
 				</configuration>
-			</plugin>-->
+			</plugin>
 			 <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>
         <version>7.0.0.pre5</version>
         <configuration>
-                 <webAppConfig>  
+                 
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+		<!--
+		 <webAppConfig>  
                     <contextPath>http://192.168.111.50:18082/cloud</contextPath>  
                    
-                </webAppConfig>  
-          <scanIntervalSeconds>5</scanIntervalSeconds>
-		<!--<connectors>  
+                </webAppConfig> 
+				<connectors>  
                     <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">  
                         <port>80</port>  
                         <maxIdleTime>60000</maxIdleTime>  

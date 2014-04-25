@@ -66,7 +66,7 @@ public class File extends ActionSupport {
 		String logPath=realPath+"/log/"+new SimpleDateFormat("yyyyMMdd").format(new Date())+"/";
 	//	System.out.println("日志："+logPath);
 		String logName=request.getSession().getAttribute("logName").toString();
-		//System.out.println("日志路径"+logPath+logName);
+		System.out.println("[logPath]"+logPath+logName);
 	    StringBuffer s=new FileOp().readFile(logPath+logName);
 	    //String s=new FileOp().readFile("d:\\123.txt");
 		PrintWriter out=response.getWriter();

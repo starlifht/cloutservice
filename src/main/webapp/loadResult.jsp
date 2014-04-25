@@ -52,21 +52,22 @@ h4{ background-color:#f7f7f7}
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<base href=<%=basePath%> target="_blank">
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="js/result.js"></script>
+<base href=<%=basePath%>>
+
 <title>测试报告</title>
 
 <link rel="Shortcut Icon" href="images/logo_50x34.png" />
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/result.js"></script>
 
 </head>
-<body >
+<body>
 
-	<div id="pic">
+	 <div id="pic">
 		<img src="images/process.gif">
 	</div>
 	<script type="text/javascript" >
-	var interval=setInterval("Push()",5000);
+		var interval=setInterval("Push()",5000);
 	</script>
 
 <div class="title">
